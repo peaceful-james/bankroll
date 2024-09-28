@@ -62,7 +62,7 @@ defmodule Bankroll.Controllers.BillingController do
 
   def setup_intent_url(conn, _params) do
     {:ok, intent} =
-      Stripe.Session.create(%{
+      Stripe.Checkout.Session.create(%{
         customer: conn.assigns.customer.stripe_id,
         mode: "setup",
         success_url: "#{billing_url(conn)}?session_id={CHECKOUT_SESSION_ID}",
@@ -141,7 +141,7 @@ defmodule Bankroll.Controllers.BillingController do
   end
 
   defp handle_checkout_session(conn, session_id) do
-    result = Stripe.Session.retrieve(session_id, expand: ["setup_intent", "subscription"])
+    result = Stripe.Checkout.Session.retrieve(session_id, expand: ["setup_intent", "subscription"])
 
     case result do
       {:ok, %{status: "complete", mode: "setup"} = intent} ->
