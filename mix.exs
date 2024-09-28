@@ -36,7 +36,10 @@ defmodule Bankroll.MixProject do
       {:plug, "~> 1.14"},
       {:stripity_stripe, github: "beam-community/stripity-stripe", override: true},
       {:phoenix_live_view, "~> 0.20"},
-      {:bling, github: "peaceful-james/bling", branch: "make-work-with-latest-stripity-stripe", override: true},
+      {:bling,
+       github: "peaceful-james/bling",
+       branch: "make-work-with-latest-stripity-stripe",
+       override: true}
     ]
   end
 end

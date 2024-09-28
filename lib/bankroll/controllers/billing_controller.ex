@@ -141,7 +141,8 @@ defmodule Bankroll.Controllers.BillingController do
   end
 
   defp handle_checkout_session(conn, session_id) do
-    result = Stripe.Checkout.Session.retrieve(session_id, expand: ["setup_intent", "subscription"])
+    result =
+      Stripe.Checkout.Session.retrieve(session_id, expand: ["setup_intent", "subscription"])
 
     case result do
       {:ok, %{status: "complete", mode: "setup"} = intent} ->
