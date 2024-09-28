@@ -34,9 +34,9 @@ defmodule Bankroll.MixProject do
       {:ecto_sql, "~> 3.6"},
       {:phoenix, "~> 1.7.2"},
       {:plug, "~> 1.14"},
-      {:stripity_stripe, "~> 2.17"},
+      {:stripity_stripe, github: "beam-community/stripity-stripe", override: true},
       {:phoenix_live_view, "~> 0.20"},
-      {:bling, "~> 0.4.0"}
+      {:bling, github: "peaceful-james/bling", branch: "make-work-with-latest-stripity-stripe", override: true},
     ]
   end
 end
